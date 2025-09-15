@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://tessera.dev/schemas/tile-config.schema.json",
+  "title": "TileConfig",
+  "description": "Schema for using a Tile inside a Mosaic (invocation/binding).",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Local alias of the tile within the mosaic."
+    },
+    "tileId": {
+      "type": "string",
+      "description": "Identifier of the tile to invoke (links to a TileDeployment)."
+    },
+    "tileVersion": {
+      "type": "string",
+      "description": "Version of the tile to invoke."
+    },
+    "uses": {
+      "type": "string",
+      "description": "Optional reference to a TileDeployment manifest (file path, URL, or registry URI)."
+    },
+    "request": {
+      "type": "string",
+      "description": "ID of the request definition within the TileDeployment to invoke."
+    },
+    "params": {
+      "type": "object",
+      "description": "Parameter values or bindings to provide when invoking the tile request.",
+      "additionalProperties": true
+    }
+  },
+  "required": ["id", "request"],
+  "anyOf": [
+    { "required": ["tileId", "tileVersion"] },
+    { "required": ["uses"] }
+  ],
+  "additionalProperties": false
+}
