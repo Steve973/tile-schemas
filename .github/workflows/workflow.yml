@@ -1,5 +1,9 @@
 name: Build and Package
 
+permissions:
+  contents: write
+  packages: write
+
 on:
   push:
     branches:
@@ -90,8 +94,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            java/build/libs/*.jar
-            python/build/dist/*.whl
-            tar/build/distributions/*.tar.gz
+            artifacts/**/*.jar
+            artifacts/**/*.whl
+            artifacts/**/*.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
