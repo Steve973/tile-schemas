@@ -83,7 +83,7 @@ jobs:
       - name: Download artifacts from build job
         uses: actions/download-artifact@v4
         with:
-          name: all-artifacts
+          name: tile-schemas-artifacts
           path: artifacts
 
       - name: Upload to GitHub Release
