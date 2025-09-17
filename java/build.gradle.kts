@@ -52,6 +52,10 @@ tasks {
         }
     }
 
+    jar {
+        archiveBaseName.set("tile-schemas")
+    }
+
     test {
         useJUnitPlatform()
     }

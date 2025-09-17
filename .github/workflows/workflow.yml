@@ -15,7 +15,7 @@ on:
 
 jobs:
   build:
-    name: Build Schemas (Java + Python)
+    name: Build Schemas (Java, Python, Tarball)
     runs-on: ubuntu-latest
 
     env:
