@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tile-schemas"
+version = "${version}"
+description = "Versioned JSON Schema files for tiles."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Steve Storck" }]
+keywords = ["json-schema", "plugin", "schema", "framework"]
+requires-python = ">=3.9"
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Build Tools",
+    "Typing :: Typed"
+]
+
+[project.urls]
+Homepage = "https://github.com/Steve973/tile-schemas"
+Repository = "https://github.com/Steve973/tile-schemas"
+
+[tool.setuptools.packages.find]
+include = ["tile_schemas*"]
+
+[tool.setuptools.package-data]
+"tile_schemas" = ["README.md", "schemas/**/*.*"]

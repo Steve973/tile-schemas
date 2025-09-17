@@ -6,18 +6,18 @@ a structured way to define and validate tile-related configuration.
 
 ## Contents
 
-- `schemas/tile-deployment.schema.json`  
+- `schemas/<version>/tile-deployment.schema.json`  
   Defines how a tile declares its identity, version, capabilities, and runtime
   requirements.
 
-- `schemas/tile-config.schema.json`  
+- `schemas/<version>/tile-config.schema.json`  
   Defines how a tile is invoked in a configuration or workflow, including which
   request to call and what parameters to provide.
 
-- `schemas/tile-request.schema.json`  
+- `schemas/<version>/tile-request.schema.json`  
   Defines the structure of a runtime request sent to a tile.
 
-- `schemas/tile-request-param-value.schema.json`  
+- `schemas/<version>/tile-request-param-value.schema.json`  
   Defines a parameter value used in a tile request.
 
 ## Usage
