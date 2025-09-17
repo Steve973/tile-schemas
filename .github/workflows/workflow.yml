@@ -2,9 +2,12 @@ name: Build and Package
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+    tags:
+      - 'v*.*.*'
   pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -56,7 +59,7 @@ jobs:
       - name: List artifacts
         run: |
           echo "== Java Output =="
-          find .java/build/libs -type f -name "*.jar"
+          find ./java/build/libs -type f -name "*.jar"
           echo "== Python Wheel Output =="
           find ./python/build/dist -type f -name "*.whl"
           echo "== Tarball Output =="
@@ -70,3 +73,36 @@ jobs:
             java/build/libs/*.jar
             tar/build/distributions/*.tar.gz
             python/build/dist/*.whl
+
+  publish:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build all artifacts
+        run: gradle build
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            java/build/libs/*.jar
+            python/build/dist/*.whl
+            tar/build/distributions/*.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
