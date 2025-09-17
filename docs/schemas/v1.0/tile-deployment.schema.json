@@ -100,6 +100,7 @@
             "description": "What the request does."
           },
           "params": {
+            "title": "RequestDefinitionParams",
             "type": "object",
             "description": "Input parameters accepted by this request.",
             "additionalProperties": {

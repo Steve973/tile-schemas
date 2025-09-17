@@ -22,6 +22,7 @@
       "description": "ID of the Tile request definition to invoke."
     },
     "params": {
+      "title": "TileRequestParams",
       "type": "object",
       "description": "Parameter values for this invocation.",
       "additionalProperties": {
