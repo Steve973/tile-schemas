@@ -56,17 +56,17 @@ jobs:
       - name: List artifacts
         run: |
           echo "== Java Output =="
-          find . -type f -name "*.jar"
+          find .java/build/libs -type f -name "*.jar"
           echo "== Python Wheel Output =="
-          find ./python/build/dist -type f
+          find ./python/build/dist -type f -name "*.whl"
           echo "== Tarball Output =="
-          find ./tar/build/distributions -type f
+          find ./tar/build/distributions -type f -name "*.tar.gz"
 
       - name: Upload distribution artifacts
         uses: actions/upload-artifact@v4
         with:
           name: tile-schemas-artifacts
           path: |
-            build/distributions/**
-            build/libs/**
-            python/build/dist/**
+            java/build/libs/*.jar
+            tar/build/distributions/*.tar.gz
+            python/build/dist/*.whl
