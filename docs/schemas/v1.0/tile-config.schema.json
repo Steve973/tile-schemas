@@ -26,9 +26,12 @@
       "description": "ID of the request definition within the TileDeployment to invoke."
     },
     "params": {
+      "title": "TileConfigParams",
       "type": "object",
       "description": "Parameter values or bindings to provide when invoking the tile request.",
-      "additionalProperties": true
+      "additionalProperties": {
+        "$ref": "tile-request-param-value.schema.json"
+      }
     }
   },
   "required": ["id", "request"],
