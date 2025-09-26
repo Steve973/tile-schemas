@@ -18,6 +18,7 @@
       "description": "The cardinality of the parameter (e.g., 1..1, 0..1, 2..n)."
     },
     "value": {
+      "type": "object",
       "description": "The parameter value itself, type depends on the declared type."
     }
   },
