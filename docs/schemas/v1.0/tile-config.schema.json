@@ -30,7 +30,7 @@
       "type": "object",
       "description": "Parameter values or bindings to provide when invoking the tile request.",
       "additionalProperties": {
-        "$ref": "tile-request-param-value.schema.json"
+        "$ref": "./tile-request-param-value.schema.json#/definitions/TileRequestParamValue"
       }
     }
   },

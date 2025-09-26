@@ -1,27 +1,35 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://tessera.dev/schemas/tile-request-param-value.schema.json",
-  "title": "TileRequestParamValue",
-  "description": "Defines a parameter value used in a TileRequest.",
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the parameter."
-    },
-    "type": {
-      "type": "string",
-      "description": "The declared data type of the parameter (e.g., string, int, float, boolean)."
-    },
-    "cardinality": {
-      "type": "string",
-      "description": "The cardinality of the parameter (e.g., 1..1, 0..1, 2..n)."
-    },
-    "value": {
+  "definitions": {
+    "TileRequestParamValue": {
+      "title": "TileRequestParamValue",
+      "description": "Defines a parameter value used in a TileRequest.",
       "type": "object",
-      "description": "The parameter value itself, type depends on the declared type."
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the parameter."
+        },
+        "type": {
+          "type": "string",
+          "description": "The declared data type of the parameter (e.g., string, int, float, boolean)."
+        },
+        "cardinality": {
+          "type": "string",
+          "description": "The cardinality of the parameter (e.g., 1..1, 0..1, 2..n)."
+        },
+        "value": {
+          "type": "object",
+          "description": "The parameter value itself, type depends on the declared type."
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "cardinality",
+        "value"
+      ],
+      "additionalProperties": false
     }
   },
-  "required": ["name", "type", "cardinality", "value"],
-  "additionalProperties": false
+  "$ref": "#/definitions/TileRequestParamValue"
 }
